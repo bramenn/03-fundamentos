@@ -29,18 +29,24 @@ export default {
 
   methods: {
     async getAnswer() {
-      this.answer = "Pensando ...";
-      const { answer, image } = await fetch("https://yesno.wtf/api").then((r) =>
-        r.json()
-      );
-      this.answer = answer === "yes" ? "Si!" : "No!";
-      this.image = image;
+      try {
+        this.answer = "Pensando ...";
+        const { answer, image } = await fetch("https://yesno.wtf/api").then(
+          (r) => r.json()
+        );
+        this.answer = answer === "yes" ? "Si!" : "No!";
+        this.image = image;
+      } catch (error) {
+        this.answer = "No se pudo realizar la consulta";
+        this.image = null;
+      }
     },
   },
 
   watch: {
     question(value, oldValue) {
       this.isValidQuestion = false;
+      console.log({ value });
       if (!value.includes("?")) return;
       this.isValidQuestion = true;
       this.getAnswer();

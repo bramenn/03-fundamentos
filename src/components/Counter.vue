@@ -3,10 +3,10 @@
   <p>
     {{ counter }} <sup>{{ pow }}</sup> = {{ squareCounter }}
   </p>
-
+  <p data-testid="counter">{{ counter }}</p>
   <div>
     <button @click="decrease()">-1</button>
-    <button @click="increase()">+1</button>
+    <button data-testid="plus" @click="increase()">+1</button>
   </div>
 </template>
 

@@ -3,5 +3,6 @@
 exports[`Counter Component Debe hacer match con el snapshot 1`] = `
 <h2>Counter</h2>
 <p>5 <sup>3</sup> = 125</p>
-<div><button>-1</button><button>+1</button></div>
+<p data-testid="counter">5</p>
+<div><button>-1</button><button data-testid="plus">+1</button></div>
 `;
